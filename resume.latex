@@ -1,0 +1,99 @@
+\documentclass[10pt]{article}
+
+% ── Page geometry ────────────────────────────────────────────────────────────
+\usepackage[
+  top=0.65in,
+  bottom=0.65in,
+  left=0.75in,
+  right=0.75in
+]{geometry}
+
+% ── Fonts ────────────────────────────────────────────────────────────────────
+\usepackage{fontspec}
+\setmainfont{Liberation Sans}
+\setmonofont{Liberation Mono}
+
+% ── Micro-typography ─────────────────────────────────────────────────────────
+\usepackage{microtype}
+
+% ── Colors ───────────────────────────────────────────────────────────────────
+\usepackage{xcolor}
+\definecolor{rulecolor}{HTML}{888888}
+\definecolor{subtle}{HTML}{444444}
+
+% ── Spacing ──────────────────────────────────────────────────────────────────
+\usepackage{parskip}
+\setlength{\parskip}{3pt}
+\setlength{\parindent}{0pt}
+
+% ── Section headings via titlesec ────────────────────────────────────────────
+\usepackage{titlesec}
+
+% H1 (#) — Name: large, bold, left-aligned
+\titleformat{\section}
+  {\LARGE\bfseries}
+  {}{0em}{}
+\titlespacing*{\section}{0pt}{0pt}{2pt}
+
+% H2 (##) — Resume sections: all-caps, bold, rule beneath
+\titleformat{\subsection}
+  {\normalsize\bfseries}
+  {}{0em}{\MakeUppercase}
+  [\vspace{2pt}{\color{rulecolor}\hrule height 0.6pt}\vspace{4pt}]
+\titlespacing*{\subsection}{0pt}{10pt}{2pt}
+
+% H3 (###) — Job title: handled by \jobentry macro, this is a fallback
+\titleformat{\subsubsection}
+  {\normalsize\bfseries}
+  {}{0em}{}
+\titlespacing*{\subsubsection}{0pt}{6pt}{1pt}
+
+% H4 (####) — Sub-labels: italic, subtle
+\titleformat{\paragraph}
+  {\small\itshape\color{subtle}}
+  {}{0em}{}
+\titlespacing*{\paragraph}{0pt}{4pt}{1pt}
+
+% ── Job entry macro: Role (left) + Date (right) on one line, Employer below ─
+\usepackage{tabularx}
+\newcommand{\jobentry}[3]{%
+  % #1 = Role, #2 = Employer, #3 = Date
+  \vspace{6pt}%
+  \noindent
+  \begin{tabularx}{\linewidth}{@{}X r@{}}
+    \textbf{#1} & \textit{\small #3}
+  \end{tabularx}%
+  \par\noindent{\small #2}\par
+  \vspace{1pt}%
+}
+
+% ── Lists ────────────────────────────────────────────────────────────────────
+\usepackage{enumitem}
+\setlist[itemize]{
+  leftmargin=1.4em,
+  itemsep=1pt,
+  parsep=0pt,
+  topsep=2pt,
+  label={\small\textbullet}
+}
+
+% ── Hyperlinks ───────────────────────────────────────────────────────────────
+\usepackage[colorlinks=true, urlcolor=black, linkcolor=black]{hyperref}
+
+% ── No page numbers ──────────────────────────────────────────────────────────
+\pagestyle{empty}
+
+% ── Suppress pandoc maketitle ────────────────────────────────────────────────
+\makeatletter
+\def\@maketitle{}
+\makeatother
+
+% ── pandoc tightlist ─────────────────────────────────────────────────────────
+\providecommand{\tightlist}{\setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+
+% ─────────────────────────────────────────────────────────────────────────────
+\begin{document}
+
+$body$
+
+\end{document}
