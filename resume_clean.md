@@ -7,7 +7,7 @@
 ## Work
 
 ### Bioinformatics Scientist
-Washington University, St. Louis, *2020–2026*
+Washington University, St. Louis, *2020–present*
 
 I am a Bioinformatics Scientist for two groups. I have been in the Brent 
 lab since 2020, and joined the Sinha group in January of 2026.
